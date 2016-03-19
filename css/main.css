@@ -1,0 +1,248 @@
+@font-face{
+	font-family: captureIt;
+	src: url('../fonts/Capture_It.ttf');
+	font-weight: 300;
+}
+@font-face{
+	font-family: captureIt2;
+	src: url('../fonts/Capture_It_2.ttf');
+	font-weight: 300;
+}
+*{
+	user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+	margin: 0px;
+	padding: 0px;
+	font-family: captureIt;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: captureIt2;
+	color: black;
+	font-weight: 300;
+}
+h5{
+	font-size: 19pt;
+}
+a{
+	text-decoration: none;
+	color: initial;
+}
+ul{
+	list-style-type: none;
+}
+.hidden{
+	display: none;
+}
+
+.vCenter{
+	-webkit-margin-before: 1.1em;
+    -webkit-margin-after: 1.1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+/*-------------NAV BAR---------------*/
+/* Structure */
+nav{
+	height: 55px;
+	background: #232323;
+	color: white;
+	clear: both;
+}
+.header{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+
+    padding: 0px 20px;
+    max-width: 95%;
+    margin: 0 auto;
+}
+nav ul{
+	z-index: 1;
+}
+nav ul li{
+	display: inline;
+	padding-left: 10px;
+}
+.logo, .logo a{
+	height: 55px;
+	position: relative;
+}
+.logo *{
+	display: inline-block;
+}
+#logoImg{
+	height: 55px;
+	width: 75px;
+
+	background: url('../media/pizza.jpg') center center no-repeat;
+	background-size: contain;
+}
+#logoText{
+    position: relative;
+    bottom: 10px;
+}
+#bestel{
+	z-index: 30;
+
+	margin-top: 36px;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+#bestel > a{
+	padding: 40px 15px;
+	line-height: 55px;
+
+	border: solid whitesmoke;
+	border-width: 3px;
+	border-radius: 100%;
+
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../media/pizza.jpg') center center no-repeat;
+	background-size: cover;
+}
+
+/*Typography*/
+nav a{
+	color: white;
+}
+nav a:hover{
+	color: #E1E1E1;
+}
+#logoText, #bestel{
+	font-size: 16pt;
+}
+/*-------------END NAV BAR---------------*/
+/*-------------MAIN CONTENT---------------*/
+.container{
+	background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../media/background.jpg) center center repeat-y;
+	background-size: cover;
+}
+/*Product lists*/
+.prodList *{
+	display: inline-block;
+	font-size: 16pt;
+}
+
+/*Banner*/
+#bigBanner{
+	width: 100%;
+	height: 100%;
+}
+.item{
+	width: 100%;
+}
+.item img{
+	width: 100%;
+}
+/*Content*/
+#content{
+	padding: 10px;
+}
+
+/*============== MENU PAGINA =================*/
+
+/*--------------Sorting System----------------*/
+.sorting{
+	display: inline-flex;
+}
+.sortingType:first-of-type{
+	margin-left: 0px;
+}
+.sortingType, .sortingType *{
+	cursor: pointer;
+}
+.sortingType{
+	font-family: captureIt;
+
+	margin-left: 10px;
+	padding: 5px;
+
+	background: black;
+	color: whitesmoke;
+	text-transform: uppercase;
+}
+.sortingType input[type="checkbox"] {
+    display: none;
+}
+.sortingType input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    background: url(../media/check_radio_sheet.png) left top no-repeat;
+}
+.sortingType input[type="checkbox"]:checked + label span {
+    background:url(../media/check_radio_sheet.png) -19px top no-repeat;
+}
+
+/*---------------Menu Items---------------*/
+.menuList{
+	margin-top: 15px;
+}
+.menuList .orderInteraction{
+	float: right;
+	position: relative;
+    top: 60px;
+}
+.menuList .productName{
+	margin-bottom: 10px;
+}
+.menuItem{
+	height: 100px;
+}
+.contain{
+	height: 100%;
+}
+.menuList img{
+	height: 100%;
+}
+.amount{
+	padding-left: 5px;
+	width: 40px;
+
+	color: cyan;
+	background: black;
+}
+/*========= AANBIEDING PAGINA ==========*/
+.folderSection{
+	width: 100%;
+	text-align: center;
+}
+.folderSection img{
+	width: 80%;
+}
+
+/*========= FOOTER =========*/
+footer{
+	min-height: 30px;
+	background: #232323;
+	color: white;
+}
+footer > span{
+	padding-top: 7px;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nonBold{
+	font-weight: initial;
+}
+
+@media screen and (max-width: 576px){
+	#bestel{
+		display: none;
+	}
+}
