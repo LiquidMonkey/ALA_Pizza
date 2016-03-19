@@ -200,21 +200,32 @@ nav a:hover{
 	margin-bottom: 10px;
 }
 .menuItem{
-	height: 100px;
+	height: 100%;
 }
 .contain{
 	height: 100%;
 }
 .menuList img{
-	height: 100%;
+	width: 100%;
 }
 .amount{
 	padding-left: 5px;
 	width: 40px;
-
-	color: cyan;
-	background: black;
 }
+.orderInteraction input{
+	color: white;
+	background: black;
+	border: #1F1F1F;
+
+	padding: 10px;
+	text-align: center;
+
+	border-radius: 20px;
+}
+.orderInteraction input[type=submit]:hover{
+	background: #3C3C3C;
+}
+
 /*========= AANBIEDING PAGINA ==========*/
 .folderSection{
 	width: 100%;
