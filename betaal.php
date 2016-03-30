@@ -57,16 +57,16 @@
 						var prijslijst = [];
 						var totaal = 0;
 
-						var korting = "10%";
+						var korting = "";
 						var kortingDeci = (parseInt(korting)/100);
 
 						var cookie = document.cookie;
 						var items = cookie.split(',');
 
-						document.writeln("<article class='row'><div class='column column-5'>");
+						document.writeln("<article class='row'><div class='center column column-6'>");
 						for (var i = 0; i < items.length; i++) {
 							var information = items[i].split('/');
-							document.writeln("<div class='column column-3'></div><div class='column column-4'><input type='text' value='"+information[0]+"' disabled></div><div class='column column-1'><input type='text' value='x"+information[2]+"' disabled></div><div class='column column-2'><input type='text' value='= "+information[1]+"' disabled></div><div class='column column-2'></div>");
+							document.writeln("<div class='column column-6'><input type='text' value='"+information[0]+"' disabled></div><div class='column column-3'><input type='text' value='x"+information[2]+"' disabled></div><div class='column column-3'><input type='text' value='= "+information[1]+"' disabled></div>");
 
 							totaal += parseFloat(information[1]);
 							//prijslijst.push("<div class='column column-12'><input type='text' class='right' value='"+information[1]+"' disabled></div>");
@@ -77,10 +77,13 @@
 						document.writeln("<hr class='column column-12'/>");
 						document.writeln("<div class='center'><span class='column column-6 textRight'>Totaal:</span><span class='column column-6'>"+totaal+"</span></div>");
 						if(korting != "" || korting != null || korting != undefined){
-							document.writeln("<div class='center'><span class='column column-6 textRight'>Korting:</span><span class='column column-6'> "+korting+"</span></div>");
+							document.writeln("<div class='center column column-12'><span class='column column-6 textRight'>Korting:</span><span class='column column-6'> "+"0%"+"</span></div>");
+							document.writeln("<hr class='column column-12'/><div class='center'><span class='column column-6 textRight'>Eind prijs:</span> <span class='column column-6'>"+totaal+"</span></div>");
+						}else{
 							document.writeln("<div class='center'><span class='column column-6 textRight'>Korting berekend:</span><span class='column column-6'> "+Math.round(totaal*kortingDeci*100)/100+"</span></div>");
 							document.writeln("<hr class='column column-12'/><div class='center'><span class='column column-6 textRight'>Eind prijs:</span> <span class='column column-6'>"+Math.round(totaal*(1-kortingDeci) *100)/100+"</span></div>");
 						}
+
 						document.writeln("</div></article>");//closes the column-3 from before the prijslijst write
 					</script>
 				</div>
