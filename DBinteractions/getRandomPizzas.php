@@ -27,6 +27,6 @@
 	shuffle($choices);
 	//print_r($choices);
 	for ($i = 0; $i < 4 && $i < count($choices); $i++) {
-		echo('<li><a href="#addToCart"><span class="tinyProductPicture"></span><span class="productName">'. $choices[$i] .'</span></a></li>');
+		echo '<div class="column column-3 featuredProduct"><a href="#addToCart"><span class="productName">'. $choices[$i] .'</span></a></div>';
 	}
 ?>

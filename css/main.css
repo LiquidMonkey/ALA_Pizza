@@ -36,11 +36,30 @@ ul{
 	display: none;
 }
 
+.filler{
+	height: 250px;
+}
+
 .vCenter{
 	-webkit-margin-before: 1.1em;
     -webkit-margin-after: 1.1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+}
+
+.right{
+	float: right;
+	text-align: right;
+}
+.textRight{
+	text-align: right;
+}
+.textLeft{
+	text-align: left;
+}
+.center{
+	margin: 0 auto;
+	text-align: center;
 }
 
 /*-------------NAV BAR---------------*/
@@ -50,6 +69,8 @@ nav{
 	background: #232323;
 	color: white;
 	clear: both;
+
+    box-shadow: 0px 0px 15px black;
 }
 .header{
     display: -webkit-box;
@@ -66,6 +87,8 @@ nav{
     padding: 0px 20px;
     max-width: 95%;
     margin: 0 auto;
+
+    height: 100%;
 }
 nav ul{
 	z-index: 1;
@@ -125,12 +148,11 @@ nav a:hover{
 /*-------------END NAV BAR---------------*/
 /*-------------MAIN CONTENT---------------*/
 .container{
-	background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../media/background.jpg) center center repeat-y;
+	background: linear-gradient( rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(../media/background.jpg) center center repeat-y;
 	background-size: cover;
 }
 /*Product lists*/
 .prodList *{
-	display: inline-block;
 	font-size: 16pt;
 }
 
@@ -142,9 +164,90 @@ nav a:hover{
 .item{
 	width: 100%;
 }
-.item img{
-	width: 100%;
+/*Specials*/
+.specials{
+	display: flex;
+	width: 42.33%;
+	height: 14vw;
+	background: gray;
+	margin: 0!important;
 }
+.specials .productName{
+	color: hotpink;
+	text-shadow: 2px 2px 3px black;
+	position: relative;
+	top: 83%;
+}
+.featuredProduct{
+	-webkit-transition: all 0.5s cubic-bezier(0.25,0.01,0.78,1);
+	-moz-transition: all 0.5s cubic-bezier(0.25,0.01,0.78,1);
+	-o-transition: all 0.5s cubic-bezier(0.25,0.01,0.78,1);
+    transition: all 0.5s cubic-bezier(0.25,0.01,0.78,1);
+
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+	flex: 1;
+
+	/*width: 25%;*/
+	height: 100%;
+}
+.featuredProduct:hover{
+	-webkit-box-flex: 6;
+    -moz-box-flex: 6;
+    -webkit-flex: 6;
+    -moz-flex: 6;
+    -ms-flex: 6;
+	flex: 6;
+}
+.featuredProduct:hover .productName{
+	z-index: 1;
+}
+.featuredProduct:not(:hover) .productName{
+	z-index: -1;
+}
+
+/*was used together with the javascript function but found the flex which works way better
+.selected{
+	z-index: 1000;
+}
+.notSelected{
+	z-index: -1;
+}*/
+
+/*.featuredProduct:hover{
+	-webkit-animation-name: enlarge;
+	animation-name: enlarge;
+	-webkit-animation-duration: 0.4s;
+	animation-duration: 0.4s;
+	-webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+.specials:hover .featuredProduct:not(:hover){
+	-webkit-animation-name: shrink;
+	animation-name: shrink;
+	-webkit-animation-duration: 0.1s;
+	animation-duration: 0.1s;
+	-webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes enlarge {
+    from {width: 25%;}
+    to {width: 70%;}
+}
+@keyframes shrink {
+    from {width: 25%;}
+    to {width: 10%;}
+}*/
+
 /*Content*/
 #content{
 	padding: 10px;
@@ -187,17 +290,20 @@ nav a:hover{
     background:url(../media/check_radio_sheet.png) -19px top no-repeat;
 }
 
-/*---------------Menu Items---------------*/
+/*---------------Menu Items---------------
+let op bestelling is appart van menu*/
 .menuList{
 	margin-top: 15px;
 }
 .menuList .orderInteraction{
 	float: right;
 	position: relative;
-    top: 60px;
 }
 .menuList .productName{
 	margin-bottom: 10px;
+}
+.productName{
+	font-size: 18pt;
 }
 .menuItem{
 	height: 100%;
@@ -208,9 +314,21 @@ nav a:hover{
 .menuList img{
 	width: 100%;
 }
+.prijs{
+	font-size: 16pt;
+}
 .amount{
 	padding-left: 5px;
 	width: 40px;
+
+	color: white;
+	background: black;
+	border: #1F1F1F;
+
+	padding: 10px;
+	text-align: center;
+
+	border-radius: 20px;
 }
 .orderInteraction input{
 	color: white;
@@ -225,6 +343,69 @@ nav a:hover{
 .orderInteraction input[type=submit]:hover{
 	background: #3C3C3C;
 }
+/*-----------Bestelling-------------*/
+#bestelling{
+	padding-top: 4px;
+	margin-bottom: 17px;
+	padding-right: 20px;
+}
+#bestelling li{
+	padding-top: 10px;
+	clear: both;
+}
+#bestelling span{
+	line-height: 16pt;
+	font-size: 18pt;
+}
+#bestelling .amount{
+	padding: 2px;
+}
+.bestelButtonDiv{
+	width: 100%;
+}
+.bestelButtonDiv .bestelButton{
+	position: relative;
+	width: 70%;
+	height: 40px;
+
+	margin: 0 auto;
+
+	text-align:center;
+	text-decoration:none;
+
+	color: white;
+
+	line-height: 42px;
+	font-size: 30px;
+	display: block;
+}
+.bestelButtonDiv .bestelButton:active {
+	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset;
+	top: 5px;
+}
+.bestelButtonDiv .bestelButton:before{
+	top: -11px;
+	bottom: -5px;
+	content: "";
+}
+.bestelButtonDiv .bestelButton{
+	text-shadow: -1px -2px 0 #02334F;
+	background: #333333;
+	border: 1px solid #2B2B2B;
+	
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	
+	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #1F1F1F, 0 4px 2px rgba(0, 0, 0, .5);
+	-moz-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #1F1F1F, 0 4px 2px rgba(0, 0, 0, .5);
+	box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #1F1F1F, 0 4px 2px rgba(0, 0, 0, .5);
+}
+
+input[disabled]:not([type=number]){
+	background: transparent;
+	border: 0px;
+}
 
 /*========= AANBIEDING PAGINA ==========*/
 .folderSection{
@@ -233,6 +414,18 @@ nav a:hover{
 }
 .folderSection img{
 	width: 80%;
+}
+
+/*========= BETAAL PAGINA ==========*/
+#betaal div{
+	cursor: default;
+}
+#betaal input{
+	width: 100%;
+	background: transparent;
+	border: 0px;
+
+	cursor: default;
 }
 
 /*========= FOOTER =========*/
@@ -252,8 +445,36 @@ footer > span{
 	font-weight: initial;
 }
 
+/*==========MEDIA RULES============*/
+/*special rule for the bestel button because its too big for mobile view*/
 @media screen and (max-width: 576px){
 	#bestel{
 		display: none;
+	}
+}
+
+@media screen and (max-width: 550px){
+	.menuList .orderInteraction{
+		top: 0;
+	}
+	.contain{
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.specials{
+		width: 100%;
+	}
+	#bigBanner .column{
+		margin-bottom: 0!important;
+	}
+}
+
+@media screen and (max-width: 300px){
+	.sorting{
+		display: inline-block;
+	}
+	.sortingType{
+		margin: 0;
 	}
 }

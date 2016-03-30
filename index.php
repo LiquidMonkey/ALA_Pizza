@@ -7,41 +7,48 @@
 		<meta name="author" content="Yannick Pot">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1"/>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="./js/main.js" type="text/javascript" charset="utf-8" async defer></script>
+
 		<title>Pizza Sopranos</title>
 		<link href="./media/pizzaLogo.jpg" rel="shortcut icon" type="image/jpg">
 
 		<link href="./css/normalize.css" rel="stylesheet" type="text/css" />
 		<link href="./css/grid.css" rel="stylesheet" type="text/css" />
 		<link href="./css/main.css" rel="stylesheet" type="text/css" />
-
-		<script src="https://code.jquery.com/jquery-1.12.1.min.js" integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I="   crossorigin="anonymous"></script>
-		<script src="./js/main.js" type="text/javascript" charset="utf-8" async defer></script>
 	</head>
 	<body>
-		<nav>
-			<div class="header">
-				<div class="logo">
-					<a href="index.php">
-						<div id="logoImg">
-						</div>
-						<div id="logoText">
-							Pizza Sopranos
-						</div>
-					</a>
-				</div>
-				<div id="bestel">
-					<a href="index.php">Bestel</a>
-				</div>
-				<ul id="rightNav" class="vCenter">
-					<li><a href="menu.php">Menu</a></li>
-					<li><a href="aanbiedingen.php">Aanbiedingen</a></li>
-				</ul>
-			</div>
-		</nav>
 		<section class="container">
-			<div id="bigBanner">
-				<div class="item">
-					<img src="media/banner3.png" alt="Heerlijke pizza"/>
+			<nav>
+				<div class="header">
+					<div class="logo">
+						<a href="index.php">
+							<div id="logoImg">
+							</div>
+							<div id="logoText">
+								Pizza Sopranos
+							</div>
+						</a>
+					</div>
+					<div id="bestel">
+						<a href="menu.php">Bestel</a>
+					</div>
+					<ul id="rightNav" class="vCenter">
+						<li><a href="menu.php">Menu</a></li>
+						<li><a href="aanbiedingen.php">Aanbiedingen</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div id="bigBanner" class="row">
+				<div class="column column-7">
+					<img class="item" src="media/banner3.png" alt="Heerlijke pizza"/>
+				</div>
+				<!-- Holds 4 random featured products-->
+				<div class="column column-5 specials">
+					<?php
+						//add 4 random products from database these are recomended/featured pizza's
+						include_once('./DBinteractions/getRandomPizzas.php');
+					?>
 				</div>
 			</div>
 			<div id="content" class="row">
@@ -56,7 +63,7 @@
 				</div>
 				<div class="column column-8">
 					<div class="column column-6">
-						<h3>Aanbiedingen</h3>
+						<h2>Aanbiedingen</h2>
 						<ul class="prodList">
 							<?php
 								//add products from database where sale = 'true'
@@ -64,17 +71,9 @@
 							?>
 						</ul>
 					</div>
-					<div class="column column-6">
-						<h3>Probeer ook eens</h3>
-						<ul class="prodList">
-						<?php
-							//add 4 random products from database
-							include_once('./DBinteractions/getRandomPizzas.php');
-						?>
-						</ul>
-					</div>
 				</div>
 			</div>
+			<div class="filler"></div>
 		</section>
 		<footer>
 			<span>Lekker hè<span class="nonBold">&#8482;</span> Yannick Pot<span class="nonBold">&copy;</span></span>

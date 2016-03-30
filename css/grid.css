@@ -2,9 +2,11 @@
     Grid System
 \*------------------------------*/
 
-.row, 
-.column {
+.row, .column {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
+    min-height: 1px;
 }
 
 .row:before,
@@ -73,7 +75,7 @@
 
 .column-12 {
     width: 100%;
-    margin-left: 0;
+    margin-left: 0!important;
 }
 
 @media only screen and (max-width: 550px) {
@@ -101,12 +103,12 @@
 /*------------------------------*\
     Styling
 \*------------------------------*/
-.row {
-    margin-bottom: 10px;
-}
-
 .row:last-child {
     margin-bottom: 0;
+}
+
+.row{
+    padding: 10px;
 }
 
 @media only screen and (max-width: 550px) {

@@ -14,7 +14,7 @@
 		<link href="./css/grid.css" rel="stylesheet" type="text/css" />
 		<link href="./css/main.css" rel="stylesheet" type="text/css" />
 
-		<script src="https://code.jquery.com/jquery-1.12.1.min.js" integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I="   crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="./js/main.js" type="text/javascript" charset="utf-8" async defer></script>
 	</head>
 	<body>
@@ -30,7 +30,7 @@
 					</a>
 				</div>
 				<div id="bestel">
-					<a href="index.php">Bestel</a>
+					<a href="menu.php">Bestel</a>
 				</div>
 				<ul id="rightNav" class="vCenter">
 					<li><a href="menu.php">Menu</a></li>
@@ -39,9 +39,16 @@
 			</div>
 		</nav>
 		<section class="container">
-			<div id="bigBanner">
-				<div class="item">
-					<img src="media/banner3.png" alt="Heerlijke pizza"/>
+			<div id="bigBanner" class="row">
+				<div class="column column-7">
+					<img class="item" src="media/banner3.png" alt="Heerlijke pizza"/>
+				</div>
+				<!-- Holds 4 random featured products-->
+				<div class="column column-5 specials">
+					<?php
+						//add 4 random products from database these are recomended/featured pizza's
+						include_once('./DBinteractions/getRandomPizzas.php');
+					?>
 				</div>
 			</div>
 			<div id="content" class="row">
