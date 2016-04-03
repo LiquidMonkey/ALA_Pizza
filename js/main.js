@@ -1,22 +1,38 @@
 $(document).ready(function() {
+	//makes every element not draggable
 	$("*").attr('draggable', 'false');
 
+	//gives a delay before the button starts animating this is done because of loading times
 	setTimeout(animateBorder, 900 );
 
+	//gives the sorting function to the on change event of the checkboxses in the menu that are used for sorting the available products
 	$(".sortingType input[type=checkbox]").on('change', sorting);
 
+	//gives the add button on the menu page the function addToBestelling when the click event is fired
 	$(".orderAddButton").click(addToBestelling);
 
-	$(".bestelButton").addClass('hidden');
-
+	//the big round button in the navigation clicks on the betaal button (on the menu page only) when click event is fired. this way the button acts the exact same as the order button no matter what changes to the order button
 	$(".redirector").click(function(){
 		$("#betaal").click();
 	});
 
+	$('.bigbutton').click(function(){
+		$(this).parent().click();
+	});
+
+	$(".hideAfterPress").click(function(){
+		$(this).addClass('hidden');
+		$('.dontHide').removeClass('hidden');
+	});
+
+	/*makes it so all the featured products get their respective backgrounds. can not be done in css (at least to my knowledge) because the featured products are added via php and therefor i didnt find a better way to do this
+	i do know i could've given all the products classes but because there is not a specified amount of products i couldnt make a switch because this would mean someone would have to dig in the code
+	Now however all they have to do is with every new product they upload an image to the correct folder (media/products/) and everything will work*/
 	putBackgrounds();
 	//animateFeatured();
 });
 
+/*Not used anymore instead look in css for the flex options
 function animateFeatured(){
 	$(".featuredProduct").on('mouseenter', function(event) {
 		$(this).finish().addClass('selected').animate({width:'23.8%', width:'65%'}, {duration: 300, start: function(){
@@ -27,17 +43,17 @@ function animateFeatured(){
 			$(".featuredProduct").not($(this)).finish().animate({width:'10%', width:'23.8%'}, 300).find('.productName').removeClass('notSelected');
 		}});
 	});
-}	
+}	*/
 
-//array for bestelling
+//array for bestelling will contain all the ordered products
 var bestelling = [];
-
+//This function gets all the information needed to put the selected product in the bestel lijst.
 function addToBestelling(){
 	var bestelItem = [];
 	var product = $(this).closest('.productInformation').children().eq(0).children('.productName').text();
-	var aantal = parseInt($(this).prev().val());
-	var prijs = parseFloat($(this).prev().prev().prev().text().split("€")[1]) * aantal;
-	var soort = $(this).prev().prev().val();
+	var aantal = parseInt($(this).closest('.orderInteraction ').find('.amount').val());
+	var prijs = parseFloat($(this).closest('.orderInteraction ').find('.prijs').text().split("€")[1]) * aantal;
+	var soort = $(this).closest('.orderInteraction ').find('.soort').val();
 	prijs = +prijs;
 	//reset amount counter
 	$(this).prev().val(1);
@@ -61,9 +77,11 @@ function addToBestelling(){
 	}
 
 	conjureBestelLijst(bestelling);
+	//activates the buttons that allow the user to order the selected products is not visible when there are no products
 	$('.bestelButton, .bestelButtonDiv').removeClass('hidden');
 }
 
+//makes the bestellijst. meaning it puts the selected products in the bestel lijst on the left of the menu page
 function conjureBestelLijst(lijst){
 	$('#bestelling').html('');
 	var i = 0;
@@ -75,12 +93,14 @@ function conjureBestelLijst(lijst){
 	});
 }
 
+//does everything that is needed for the pay button
 function betaal(){
-	setCookie();
+	bakery();
 	window.location.replace("betaal.php");
 }
 
-function setCookie(){
+//bakes the cookies
+function bakery(){
 	var cookieValue = [];
 	$(bestelling).each(function(index){
 		var item = bestelling[index];
@@ -89,7 +109,7 @@ function setCookie(){
 			every part is devided by a , and 
 			every name(key) and value  is devided by :
 		*/
-		cookieValue.push(item[0]+"/"+item[2]+"/"+item[1]);
+		cookieValue.push(item[0]+"/"+item[2]+"/"+item[1]+"/"+item[3]);
 	});
 	
 	document.cookie = cookieValue;
@@ -112,6 +132,7 @@ function animateBorder(){
 	}
 }
 
+//handels the sorting in the menu page with the checkboxes
 function sorting(){
 	$(this).closest('.sortingType').children('input');
 	if( $(this).is(":checked") ){
@@ -155,9 +176,10 @@ function emailVerzenden(bestelling, besteller){
 
 }
 
+//gives the featured boxes their backgrounds depending on the name of that product THEREFOR EVERY IMAGE SHOULD BE THE SAME FORMAT (PNG)
 function putBackgrounds(){
 	var prodList = $(".featuredProduct");
 	for (var i = 0; i < prodList.length; i++) {
-		$(".featuredProduct").eq(i).css('background','url("./media/products/'+ $(".featuredProduct").eq(i).text() +'.png") left center no-repeat').css('backgroundSize', 'cover');
+		$(".featuredProduct").eq(i).css('background','url("./media/products/'+ $(".featuredProduct").eq(i).text() +'.png") center center no-repeat').css('backgroundSize', 'cover');
 	};
 }

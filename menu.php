@@ -16,6 +16,12 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="./js/main.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script>
+			$(window).ready(function(){
+				//hides the bestelbuttons that allow the user to order products this is only relevant in the menu page
+				$(".bestelButton").addClass('hidden');				
+			});	
+		</script>
 	</head>
 	<body>
 		<nav>

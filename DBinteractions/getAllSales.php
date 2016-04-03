@@ -13,6 +13,6 @@
 	//preparing output variable
 	while ($row = $preparedQuery->fetch(PDO::FETCH_ASSOC)) {
 		//add name of product to the choices array
-		echo '<li><a href="#addToCart"><span class="tinyProductPicture"></span><span class="productName">'. $row{'naam'} .'</span></a></li>';
+		echo '<li><a href="menu.php"><span class="tinyProductPicture"></span><span class="productName">'. $row{'naam'} .'</span></a></li>';
 	}
 ?>

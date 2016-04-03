@@ -32,8 +32,9 @@ a{
 ul{
 	list-style-type: none;
 }
+
 .hidden{
-	display: none;
+	display: none!important;
 }
 
 .filler{
@@ -61,6 +62,9 @@ ul{
 	float: none;
 	margin: 0 auto;
 	text-align: center;
+}
+.float{
+	float: left;
 }
 
 /*-------------NAV BAR---------------*/
@@ -165,7 +169,7 @@ nav a:hover{
 .item{
 	width: 100%;
 }
-/*Specials*/
+/*---------------- FeaturedProducts ---------------*/
 .specials{
 	display: flex;
 	width: 42.33%;
@@ -428,10 +432,58 @@ input[disabled]:not([type=number]){
 
 	cursor: default;
 }
+#betaal input[type=submit], #betaal form input, textarea{
+	background: black;
+	color: white;
+}
 #betaal *{
 	font-size: 21pt;
 }
+.inputGroup{
+	margin: 5px;
+}
+.inputGroup:first-of-type{
+	margin-top: 40px;
+}
+.inputGroup:nth-child(5){
+	margin-bottom: 20px;
+}
+.inputGroup input{
+	padding: 6px;
+	border-radius: 10px;
+}
+.inputGroup span{
+	margin-top: 7px;
+}
 
+/*=========BETAAL METHODE=========*/
+.bigbutton{
+	display: block;
+	width: 100%;
+	padding: 100px 0;
+
+	background: gray;
+
+	font-size: 30pt;
+}
+.bigbutton.ideal{
+	background: #FF97FB url('../media/IDEAL.png') left center no-repeat;
+	background-size: contain;
+}
+.bigbutton.paypal{
+	background: #699BD3 url('../media/Paypal.png') left center no-repeat;
+	background-size: contain;
+}
+.bigbuttonContainer{
+	width: 50%;
+}
+.bigbuttonContainer a{
+	display: block;
+}
+.bigbutton input{
+	background: transparent;
+	border: 0 solid transparent;
+}
 /*========= FOOTER =========*/
 footer{
 	min-height: 30px;

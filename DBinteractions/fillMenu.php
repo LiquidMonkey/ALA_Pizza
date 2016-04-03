@@ -20,7 +20,7 @@
 		$string = '<div categorie="'. $row{'categorieNaam'} .'" class="row menuItem">'."\n\t".'<div class="column column-2 contain">'."\n\t\t".'<img src="./media/products/'. $row{'naam'} .'.png"/>'."\n\t".'</div>'."\n\t".'<div class="productInformation column column-10">'."\n\t\t".'<div class=" column column-6">'."\n\t\t\t".'<div class="productName column column-12">'. $row{'naam'} .'</div>'."\n\t\t\t".'<div class="productIngriedients column column-12">'."\n\t\t\t\t".'<p>'. $ingredienten .'</p>'."\n\t\t\t".'</div>'."\n\t\t".'</div>'."\n\t\t".'<div class="orderInteraction column column-6"><span class="prijs">&euro; '.$row{'prijs'}.'</span>';
 
 		if($row{'categorieNaam'} == 'pizza'){
-			$string2 = "\n\t\t\t".'<select name="soort"><option value="medium">medium</option><option value="large">large</option><option value="calzone">calzone</option></select>'."\n\t\t\t".'<input type="number" name="amount" value="1" max="100" min="1" class="amount"/>'."\n\t\t\t".'<input type="submit" value="Add to cart" class="orderAddButton"/>'."\n\t\t".'</div>'."\n\t\t".'</div>'."\n\t".'</div>'."\n\n";
+			$string2 = "\n\t\t\t".'<select name="soort" class="soort"><option value="medium">medium</option><option value="large">large</option><option value="calzone">calzone</option></select>'."\n\t\t\t".'<input type="number" name="amount" value="1" max="100" min="1" class="amount"/>'."\n\t\t\t".'<input type="submit" value="Add to cart" class="orderAddButton"/>'."\n\t\t".'</div>'."\n\t\t".'</div>'."\n\t".'</div>'."\n\n";
 		}else{
 			$string2 = "\n\t\t\t".'<input type="number" name="amount" value="1" max="100" min="1" class="amount"/>'."\n\t\t\t".'<input type="submit" value="Add to cart" class="orderAddButton"/>'."\n\t\t".'</div>'."\n\t\t".'</div>'."\n\t".'</div>'."\n\n";
 		}
