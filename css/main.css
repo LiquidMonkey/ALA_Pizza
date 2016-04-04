@@ -176,6 +176,7 @@ nav a:hover{
 	height: 14vw;
 	background: gray;
 	margin: 0!important;
+	overflow: hidden;
 }
 .specials .productName{
 	color: hotpink;
@@ -184,6 +185,8 @@ nav a:hover{
 	top: 83%;
 }
 .featuredProduct{
+	display: flex;
+
 	-webkit-transition: all 0.5s cubic-bezier(0.25,0.01,0.78,1);
 	-moz-transition: all 0.5s cubic-bezier(0.25,0.01,0.78,1);
 	-o-transition: all 0.5s cubic-bezier(0.25,0.01,0.78,1);
@@ -205,12 +208,12 @@ nav a:hover{
 	height: 100%;
 }
 .featuredProduct:hover{
-	-webkit-box-flex: 6;
-    -moz-box-flex: 6;
-    -webkit-flex: 6;
-    -moz-flex: 6;
-    -ms-flex: 6;
-	flex: 6;
+	-webkit-box-flex-grow: 10;
+    -moz-box-flex-grow: 10;
+    -webkit-flex-grow: 10;
+    -moz-flex-grow: 10;
+    -ms-flex-grow: 10;
+	flex-grow: 10;
 }
 .featuredProduct:hover .productName{
 	z-index: 1;
@@ -432,9 +435,11 @@ input[disabled]:not([type=number]){
 
 	cursor: default;
 }
-#betaal input[type=submit], #betaal form input, textarea{
+#betaal input[type=submit], #betaal form input, textarea, #betaal select{
 	background: black;
 	color: white;
+	padding: 6px;
+	border-radius: 20px;
 }
 #betaal *{
 	font-size: 21pt;
@@ -447,10 +452,6 @@ input[disabled]:not([type=number]){
 }
 .inputGroup:nth-child(5){
 	margin-bottom: 20px;
-}
-.inputGroup input{
-	padding: 6px;
-	border-radius: 10px;
 }
 .inputGroup span{
 	margin-top: 7px;

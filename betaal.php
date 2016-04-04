@@ -1,56 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta name="description" content="Site van pizzaria sopranos bestel heerlijke verse pizza's">
-	<meta name="keywords" content="pizza, bestellen, online, eten, vers, sopranos, pizzaria">
-	<meta name="author" content="Yannick Pot">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1"/>
+<?php
+	include_once './includes/header.php';
+?>
 
-	<title>Pizza Sopranos</title>
-	<link href="./media/pizzaLogo.jpg" rel="shortcut icon" type="image/jpg">
-
-	<link href="./css/normalize.css" rel="stylesheet" type="text/css" />
-	<link href="./css/grid.css" rel="stylesheet" type="text/css" />
-	<link href="./css/main.css" rel="stylesheet" type="text/css" />
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<script src="./js/main.js" type="text/javascript" charset="utf-8" async defer></script>
-</head>
-<body>
-	<nav>
-		<div class="header">
-			<div class="logo">
-				<a href="index.php">
-					<div id="logoImg">
-					</div>
-					<div id="logoText">
-						Pizza Sopranos
-					</div>
-				</a>
-			</div>
-			<div class="hidden">
-				<a href="#" id="bestel" class="bestelButton">Bestel</a>
-			</div>
-			<ul id="rightNav" class="vCenter">
-				<li><a href="menu.php">Menu</a></li>
-				<li><a href="aanbiedingen.php">Aanbiedingen</a></li>
-			</ul>
-		</div>
-	</nav>
-	<section class="container">
-		<div id="bigBanner" class="row">
-			<div class="column column-7">
-				<img class="item" src="media/banner3.png" alt="Heerlijke pizza"/>
-			</div>
-			<!-- Holds 4 random featured products-->
-			<div class="column column-5 specials">
-				<?php
-				//add 4 random products from database these are recomended/featured pizza's
-				include_once('./DBinteractions/getRandomPizzas.php');
-				?>
-			</div>
-		</div>
 		<div id="content" class="row">
 			<div id="betaal" class="row">
 				<script type="text/javascript">
@@ -113,21 +64,21 @@
 							<div class="column column-12 inputGroup">
 								<span class="column column-3">Naam Verzender:</span>
 								<div class="column column-9">
-									<input type="text" name="van_naam">
+									<input required type="text" name="van_naam">
 								</div>
 							</div>
 
 							<div class="column column-12 inputGroup">
 								<span class="column column-3">Email: </span>
 								<div class="column column-9">
-									<input type="email" name="van_emailadres">
+									<input required type="email" name="van_emailadres">
 								</div>
 							</div>
 
 							<div class="column column-12 inputGroup">
 								<span class="column column-3">Woonplaats: </span>
 								<div class="column column-9">
-									<select name="woonplaats">
+									<select required name="woonplaats">
 										<option selected disabled hidden style='display: none;' value=''>Kies dichtsbijzijnde</option>
 										<option value="zoetermeer">Zoetermeer</option>
 										<option value="amsterdam">Amsterdam</option>
@@ -139,18 +90,18 @@
 							<div class="column column-12 inputGroup">
 								<span class="column column-3">straat: </span>
 								<div class="column column-5">
-									<input type="text" name="straat"> 
+									<input required type="text" name="straat"> 
 								</div>
 								<span class="column column-2">nummer:</span>
 								<div class="column column-2">
-									<input type="number" name="streetNumb" min="0">
+									<input required type="number" name="streetNumb" min="0">
 								</div>
 							</div>
 
 							<div class="column column-12 inputGroup">
 								<span class="column column-3">telNummer: </span>
 								<div class="column column-9">
-									<input type="text" name="telNummer">
+									<input required type="text" name="telNummer">
 								</div>
 							</div>
 
@@ -163,9 +114,7 @@
 					?>
 				</div>
 			</div>
-		</section>
-		<footer>
-			<span>Lekker hè<span class="nonBold">&#8482;</span> Yannick Pot<span class="nonBold">&copy;</span></span>
-		</footer>
-	</body>
-	</html>
+
+<?php
+	include_once './includes/footer.php';
+?>
